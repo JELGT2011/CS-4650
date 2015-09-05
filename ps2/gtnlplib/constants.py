@@ -1,16 +1,11 @@
 # You may store the dataset anywhere you want.
 # Make the appropriate changes to the following constants.
-#TRAINKEY = '/home/sandy/Desktop/train-imdb.key'
-#DEVKEY = '/home/sandy/Desktop/dev-imdb.key'
-#TESTKEY = '/home/sandy/Desktop/test-imdb.key'
-
-
-TRAINKEY = 'data/train.key'
-DEVKEY = 'data/dev.key'
-TESTKEY = 'data/test.key'
+TRAINKEY = '~/Documents/Working\ Directory/CS-4650/ps2/book-reviews/train.key'
+DEVKEY = '~/Documents/Working\ Directory/CS-4650/ps2/book-reviews/dev.key'
+# TESTKEY = '/home/sandy/Desktop/test-imdb.key'
 
 # Sentiment file - should be present in the dataset
-SENTIMENT_FILE = "data/sentiment-vocab.tff"
+SENTIMENT_FILE = "~/Documents/Working\ Directory/CS-4650/ps2/book-reviews/sentiment-vocab.tff"
 
 OFFSET = '**OFFSET**'
 

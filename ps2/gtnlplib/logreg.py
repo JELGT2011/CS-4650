@@ -10,6 +10,7 @@ import gtnlplib.scorer as scorer
 # compute the normalized probability of each label 
 def computeLabelProbs(instance,weights,labels):
     # your code goes here
+    pass
 
 def trainLRbySGD(N_its,inst_generator, outfile, devkey, learning_rate=1e-4, regularizer=1e-2):
     weights = defaultdict(float)
