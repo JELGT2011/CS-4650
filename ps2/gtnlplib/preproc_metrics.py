@@ -10,4 +10,4 @@ def type_frequency(vocabulary, k):
 def unseen_types(first_vocab, second_vocab):
     # finds number of tokens in the first_vocab that are not in the second, AKA
     # first_vocab - second_vocab
-    return len(set(first_vocab.keys()).difference(set(second_vocab.keys())))
+    return len(set(second_vocab.keys()).difference(set(first_vocab.keys())))

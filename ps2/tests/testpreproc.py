@@ -41,7 +41,7 @@ def test_token_type_ratio_for_dev():
     TOLERANCE = 0.1
     actual = get_token_type_ratio(ac_dev)
     expected = 6.923
-    ok_(abs(actual - expected) < 0.01, msg="OUT_OF_BOUND Expected:%f, Actual:%f" % (expected, actual))
+    ok_(abs(actual - expected) < TOLERANCE, msg="OUT_OF_BOUND Expected:%f, Actual:%f" % (expected, actual))
 
 
 def test_type_frequency_for_train():
@@ -54,7 +54,7 @@ def test_type_frequency_for_train():
 def test_type_frequency_for_dev():
     """ Types occuring with certain frequency should match exactly"""
     actual = type_frequency(ac_dev, 1)
-    expected = 4738
+    expected = 4737
     eq_(actual, expected, msg="UNEQUAL Expected:%d, Actual:%d" % (expected, actual))
 
 

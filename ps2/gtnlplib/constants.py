@@ -5,7 +5,7 @@ DEVKEY = '/Users/Jason/Documents/Working Directory/CS-4650/ps2/book-reviews/dev.
 TESTKEY = '/Users/Jason/Documents/Working Directory/CS-4650/ps2/book-reviews/dev.key'
 
 # Sentiment file - should be present in the dataset
-SENTIMENT_FILE = "~/Documents/Working Directory/CS-4650/ps2/book-reviews/sentiment-vocab.tff"
+SENTIMENT_FILE = "/Users/Jason/Documents/Working Directory/CS-4650/ps2/book-reviews/sentiment-vocab.tff"
 
 OFFSET = '**OFFSET**'
 
