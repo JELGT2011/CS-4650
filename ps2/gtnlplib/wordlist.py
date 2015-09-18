@@ -32,15 +32,9 @@ def learnMCCWeights():
 def learnWLCWeights(poswords, negwords):
     weights_list = defaultdict(int)
 
-    neuwords = negwords.intersection(poswords)
-    poswords = poswords.difference(neuwords)
-    negwords = negwords.difference(neuwords)
-
     for word in poswords:
         weights_list['POS', word] = 1
     for word in negwords:
         weights_list['NEG', word] = 1
-    for word in neuwords:
-        weights_list['NEU', word] = 1
 
     return weights_list

@@ -64,6 +64,7 @@ def test_mcc_dev_accuracy():
     mat = evalClassifier(weights_mcc, MCC_FILE, DEVKEY)
     actual = scorer.accuracy(mat)
     expected = 0.3756
+    print(actual)
     assert_almost_equals(expected, actual, places=4, msg="UNEQUAL Expected:%f, Actual:%f" % (expected, actual))
 
 
@@ -87,3 +88,4 @@ def test_wlc_dev_almost_there_accuracy():
     actual = scorer.accuracy(mat)
     expected = 0.40
     ok_(expected <= actual, msg="UNEQUAL Expected:%f, Actual:%f" % (expected, actual))
+

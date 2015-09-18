@@ -2,9 +2,7 @@ import csv
 import gtnlplib.scorer
 import operator
 from gtnlplib.preproc import dataIterator
-from gtnlplib.constants import ALL_LABELS
-from gtnlplib.constants import TESTKEY
-from gtnlplib.constants import DEVKEY
+from gtnlplib.constants import ALL_LABELS, TESTKEY, DEVKEY
 
 # use this to find the highest-scoring label
 argmax = lambda x: max(x.iteritems(), key=operator.itemgetter(1))[0]
@@ -14,12 +12,11 @@ argmax = lambda x: max(x.iteritems(), key=operator.itemgetter(1))[0]
 # should return two outputs: the highest-scoring label, and the scores for all labels
 def predict(instance, weights, labels):
     scores = dict()
-    for label in labels:
-        scores[label] = 1
 
-    for (classification, word), weight in weights.iteritems():
-        if word in instance:
-            scores[classification] *= instance[word] * weights[classification, word]
+    for label in labels:
+        scores[label] = 0
+        for word in instance:
+            scores[label] += instance[word] * weights[label, word]
 
     return argmax(scores), scores
 

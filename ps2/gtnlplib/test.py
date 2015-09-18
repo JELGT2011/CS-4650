@@ -14,9 +14,9 @@ import gtnlplib.scorer
 import gtnlplib.constants
 import gtnlplib.analysis
 
-poswords, negwords = gtnlplib.wordlist.loadSentimentWords(gtnlplib.constants.SENTIMENT_FILE)
+counts, class_counts, allkeys = gtnlplib.preproc.getCountsAndKeys(gtnlplib.constants.TRAINKEY)
+weights_nb = gtnlplib.naivebayes.learnNBWeights(counts, class_counts, allkeys, alpha=0.1)
 
-weights_wlc = gtnlplib.wordlist.learnWLCWeights(poswords, negwords)
-outfile = 'word_list.txt'
-mat = gtnlplib.clf_base.evalClassifier(weights_wlc, outfile, gtnlplib.constants.DEVKEY)
+outfile = 'nb.txt'
+mat = gtnlplib.clf_base.evalClassifier(weights_nb, outfile, gtnlplib.constants.DEVKEY)
 print gtnlplib.scorer.printScoreMessage(mat)
