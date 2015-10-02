@@ -2,7 +2,8 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 from collections import defaultdict, Counter
 import os.path
 from itertools import chain
-from gtnlplib.constants import OFFSET, UNKNOWN
+from constants import OFFSET, UNKNOWN
+
 
 def getAllTags(input_file):
     """Return unique set of tags in the conll file"""
@@ -12,7 +13,8 @@ def getAllTags(input_file):
             alltags.add(tag)
     return alltags
 
-def conllSeqGenerator(input_file,max_insts=1000000):
+
+def conllSeqGenerator(input_file, max_insts=1000000):
     """Create a generator of (words, tags) pairs over the conll input file
     
     Parameters:
@@ -32,18 +34,19 @@ def conllSeqGenerator(input_file,max_insts=1000000):
             if len(line.rstrip()) == 0:
                 if len(cur_words) > 0:
                     num_insts += 1
-                    yield cur_words,cur_tags
+                    yield cur_words, cur_tags
                     cur_words = []
                     cur_tags = []
             else:
                 parts = line.rstrip().split()
                 cur_words.append(parts[0])
-                if len(parts)>1:
+                if len(parts) > 1:
                     cur_tags.append(parts[1])
-                else: cur_tags.append(UNKNOWN)
+                else:
+                    cur_tags.append(UNKNOWN)
         if num_insts >= max_insts:
-           return
+            return
 
-        if len(cur_words)>0:
+        if len(cur_words) > 0:
             num_insts += 1
-            yield cur_words,cur_tags
+            yield cur_words, cur_tags
